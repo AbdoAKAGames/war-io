@@ -1,0 +1,97 @@
+html, body {
+    background: linear-gradient(320deg, #791caf, #c300ff);
+    height: 100%;
+    margin: 0;
+    padding: 10px;
+}
+form {
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    height: 10%;
+}
+
+ul {
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    list-style-type: none;
+    color: #000;
+}
+
+input {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(320deg, #fff, #aaa);
+    font-size: 1em;
+}
+
+button {
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    width: 10%;
+    height: 100%;
+    background: linear-gradient(320deg, #00ff62, #1caf3c);
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+li {
+    background: #0f0;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+.out {
+    background: #0f0;
+    width: 40%;
+    transform: translateX(136%);
+    &::before {
+        content: '(You)';
+        color: #0053a1;
+        padding-right: 10px;
+    }
+}
+.in {
+    background: #fff;
+    width: 40%;
+}
+.sys {
+    background: #ffc400;
+    &::before {
+        content: '(system)';
+        color: #0053a1;
+        padding-right: 10px;
+    }
+    opacity: 0.6;
+}
+span {
+    font-size: 20px;
+    margin-left: 10px;
+}
+::-webkit-scrollbar{
+    -webkit-appearance: none;
+    width: 0.5vw;
+    height: 0.8vh;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 0.5vw;
+    background: #ff0000;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #ff5e00;
+}
+::-webkit-scrollbar-track{
+    background: #daa520;
+    border-radius: 0.5vw;
+}
