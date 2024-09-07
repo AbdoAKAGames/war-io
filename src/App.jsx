@@ -300,7 +300,7 @@ const perks = [
         perks[0] = 
             {
                 name: "DAP",
-                src: "src/assets/dap.png",
+                src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
                 rank: "none",
                 unlockLevel: 0,
                 unlocked: true,
@@ -308,7 +308,7 @@ const perks = [
         perks[1] = 
             {
                 name: "abc",
-                src: "src/assets/dap.png",
+                src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
                 rank: "none",
                 unlockLevel: 0,
                 unlocked: true,
@@ -316,7 +316,7 @@ const perks = [
         perks[2] = 
             {
                 name: "def",
-                src: "src/assets/dap.png",
+                src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
                 rank: "none",
                 unlockLevel: 0,
                 unlocked: true,
@@ -324,7 +324,7 @@ const perks = [
         perks[3] = 
             {
                 name: "ghi",
-                src: "src/assets/dap.png",
+                src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
                 rank: "none",
                 unlockLevel: 0,
                 unlocked: true,
