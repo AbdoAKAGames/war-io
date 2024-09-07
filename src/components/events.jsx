@@ -15,7 +15,7 @@ export function Events({ eventsContent }) {
                 </div>
                 <div className="events-container">
                     <div className="events">
-                        {events.map(event => (
+{/*                         {events.map(event => (
                             <div className="event">
                             <div className="event-title">
                                 {event.title}
@@ -29,7 +29,7 @@ export function Events({ eventsContent }) {
                                 {event.time}
                             </div>
                         </div>
-                        ))}
+                        ))} */}
                     </div>
                 </div>
             </div>
