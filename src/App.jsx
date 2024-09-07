@@ -248,28 +248,28 @@ export default function App() {
 const perks = [
   {
       name: "DAP",
-      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/weapons/dap.png?raw=true",
+      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
       rank: "none",
       unlockLevel: 0,
       unlocked: true,
   },
   {
       name: "DAP2",
-      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/weapons/dap.png?raw=true",
+      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
       rank: "none",
       unlockLevel: 0,
       unlocked: true,
   },
   {
       name: "DAP3",
-      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/weapons/dap.png?raw=true",
+      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
       rank: "none",
       unlockLevel: 0,
       unlocked: true,
   },
   {
       name: "DAP4",
-      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/weapons/dap.png?raw=true",
+      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
       rank: "none",
       unlockLevel: 0,
       unlocked: true,
