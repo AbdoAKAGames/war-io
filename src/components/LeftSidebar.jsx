@@ -8,7 +8,7 @@ export function LeftSidebar({ showGear, showPlay, showClans, showEvents, showMes
                     <div className="left_sidebar_gear left_sidebar_item" onClick={() => showGear()}>
                         <div className="left_sidebar_gear_container left_sidebar_item_container">
                             <div className="left_sidebar_gear_image_container left_sidebar_item_image_container">
-                                <img className="left_sidebar_gear_image left_sidebar_item_image" src="https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/profile.png?raw=true" draggable="false" />
+                                <img className="left_sidebar_gear_image left_sidebar_item_image" src="https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/gear.png?raw=true" draggable="false" />
                             </div>
                             <div className="left_sidebar_gear_text_container left_sidebar_item_text_container">
                                 <div className="left_sidebar_gear_text left_sidebar_item_text">
