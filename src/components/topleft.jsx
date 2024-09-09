@@ -6,7 +6,7 @@ export function TopLeft({ showProfile }){
         <div className="top_left">
                 <div className="profile_guest" onClick={() => showProfile()}>
                     <div className="profile_guest_img_container">
-                        <img className="profile_guest_img" src="../src/assets/profile.png" draggable="false" />
+                        <img className="profile_guest_img" src="https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/profile.png?raw=true" draggable="false" />
                     </div>
                 </div>
                 <div className="name_level_container">

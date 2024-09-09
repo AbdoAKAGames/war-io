@@ -116,14 +116,14 @@ export default function App() {
       const melee = [
         {
             name: "Tiger Karambit",
-            src: "src/assets/tiger karambit.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/tiger karambit.png?raw=true",
             rank: "mythic",
             unlockLevel: 0,
             unlocked: true,
         },
         {
             name: "Katana",
-            src: "src/assets/Katana.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/Katana.png?raw=true",
             rank: "legend",
             unlockLevel: 0,
             unlocked: true,
@@ -132,14 +132,14 @@ export default function App() {
     const pistol = [
         {
             name: "Golden Gun",
-            src: "src/assets/goldengun.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/goldengun.png?raw=true",
             rank: "legend",
             unlockLevel: 0,
             unlocked: true,
         },
         {
             name: "Bretta",
-            src: "src/assets/Bretta.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/Bretta.png?raw=true",
             rank: "rare",
             unlockLevel: 0,
             unlocked: true,
@@ -148,14 +148,14 @@ export default function App() {
     const main = [
         {
             name: "AK47",
-            src: "src/assets/AK47.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/AK47.png?raw=true",
             rank: "uncommon",
             unlockLevel: 0,
             unlocked: true,
         },
         {
             name: "M4",
-            src: "src/assets/M4.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/M4.png?raw=true",
             rank: "rare",
             unlockLevel: 0,
             unlocked: true,
@@ -164,14 +164,14 @@ export default function App() {
     const explosives = [
         {
             name: "Frag Grenade",
-            src: "src/assets/Frag Grenade.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/Frag Grenade.png?raw=true",
             rank: "epic",
             unlockLevel: 0,
             unlocked: true,
         },
         {
             name: "Flash Grenade",
-            src: "src/assets/Flash Grenade.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/Flash Grenade.png?raw=true",
             rank: "epic",
             unlockLevel: 0,
             unlocked: true,
@@ -180,14 +180,14 @@ export default function App() {
     const packs = [
         {
             name: "Ammo Pack",
-            src: "src/assets/Ammo Pack.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/Ammo Pack.png?raw=true",
             rank: "epic",
             unlockLevel: 0,
             unlocked: true,
         },
         {
             name: "Health Pack",
-            src: "src/assets/Health Pack.png",
+            src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/Health Pack.png?raw=true",
             rank: "epic",
             unlockLevel: 0,
             unlocked: true,
@@ -196,14 +196,14 @@ export default function App() {
     const skins = [
       {
           name: "flowers",
-          src: "src/assets/flowers.png",
+          src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/flowers.png?raw=true",
           rank: "common",
           unlockLevel: 0,
           unlocked: true,
       },
       {
           name: "sunny",
-          src: "src/assets/sunny.png",
+          src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/sunny.png?raw=true",
           rank: "uncommon",
           unlockLevel: 0,
           unlocked: true,
@@ -212,14 +212,14 @@ export default function App() {
   const bodies = [
       {
           name: "white",
-          src: "src/assets/white.png",
+          src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/white.png?raw=true",
           rank: "common",
           unlockLevel: 0,
           unlocked: true,
       },
       {
           name: "grey",
-          src: "src/assets/grey.png",
+          src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/grey.png?raw=true",
           rank: "uncommon",
           unlockLevel: 0,
           unlocked: true,
@@ -228,14 +228,14 @@ export default function App() {
   const hands = [
       {
           name: "none",
-          src: "src/assets/none.png",
+          src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/none.png?raw=true",
           rank: "common",
           unlockLevel: 0,
           unlocked: true,
       },
       {
           name: "bunny hands",
-          src: "src/assets/bunnyhands.png",
+          src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/bunnyhands.png?raw=true",
           rank: "uncommon",
           unlockLevel: 0,
           unlocked: true,
@@ -244,7 +244,7 @@ export default function App() {
   const emojis = [
     {
         name: "like",
-        src: "src/assets/like emoji.png",
+        src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/like emoji.png?raw=true",
         rank: "common",
         unlockLevel: 0,
         unlocked: true,
@@ -253,28 +253,28 @@ export default function App() {
 const perks = [
   {
       name: "DAP",
-      src: "images/weapons/dap.png",
+      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
       rank: "none",
       unlockLevel: 0,
       unlocked: true,
   },
   {
       name: "DAP2",
-      src: "images/weapons/dap.png",
+      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
       rank: "none",
       unlockLevel: 0,
       unlocked: true,
   },
   {
       name: "DAP3",
-      src: "images/weapons/dap.png",
+      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
       rank: "none",
       unlockLevel: 0,
       unlocked: true,
   },
   {
       name: "DAP4",
-      src: "images/weapons/dap.png",
+      src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
       rank: "none",
       unlockLevel: 0,
       unlocked: true,
@@ -305,7 +305,7 @@ const perks = [
         perks[0] = 
             {
                 name: "DAP",
-                src: "src/assets/dap.png",
+                src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
                 rank: "none",
                 unlockLevel: 0,
                 unlocked: true,
@@ -313,7 +313,7 @@ const perks = [
         perks[1] = 
             {
                 name: "abc",
-                src: "src/assets/dap.png",
+                src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
                 rank: "none",
                 unlockLevel: 0,
                 unlocked: true,
@@ -321,7 +321,7 @@ const perks = [
         perks[2] = 
             {
                 name: "def",
-                src: "src/assets/dap.png",
+                src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
                 rank: "none",
                 unlockLevel: 0,
                 unlocked: true,
@@ -329,7 +329,7 @@ const perks = [
         perks[3] = 
             {
                 name: "ghi",
-                src: "src/assets/dap.png",
+                src: "https://github.com/AbdoAKAGames/war-io/blob/master/src/assets/dap.png?raw=true",
                 rank: "none",
                 unlockLevel: 0,
                 unlocked: true,

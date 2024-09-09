@@ -99,7 +99,8 @@ const createClan = useCallback(() => {
         }
     }
 
-    JSON.parse(localStorage.getItem("clans")).map(clan => {
+    if (localStorage.getItem("clans")) {
+        JSON.parse(localStorage.getItem("clans")).map(clan => {
         console.log(clan.members.length == 0);
         if (clan.members.length == 0) {
             clansArr.splice(clansArr.indexOf(clan), 1);
@@ -107,6 +108,7 @@ const createClan = useCallback(() => {
             setClans(prevClans => [...prevClans]);
         }
     })
+          } 
 
     return (
         <>
