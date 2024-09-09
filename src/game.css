@@ -4,6 +4,9 @@ html, body{
     overflow: hidden;
     user-select: none;
 }
+* {
+    outline: none;
+}
 .title:hover, .top_left:hover{
     filter: brightness(110%);
 }
@@ -1128,6 +1131,7 @@ tr{
     background: linear-gradient(320deg, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf, #0059ff, #0cf);
     border-radius: 15px;
     animation: messages 2000s linear 0s infinite alternate-reverse;
+    overflow-y: auto;
 }
 .open-world-chat {
     height: 10%;
@@ -1144,6 +1148,182 @@ tr{
 @keyframes messages {
     from {background-position: 0 0;}
     to {background-position: 40000px 40000px;}
+}
+.settings-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.4);
+}
+.settings {
+  width: 25%;
+  height: 80%;
+  background: linear-gradient(#000, #1a1a1a);
+  text-align: center;
+  border-radius: 10px;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: 0 0 3vw 0.1vw rgba(255, 255, 255, 0.5);
+}
+.settings-header {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 25px;
+  border-radius: 10px;
+  background: rgba(0, 255, 255, 0.6);
+  color: #fff;
+}
+.sound-range-container {
+    height: 65px;
+    width: 100%;
+    background: rgba(0, 255, 255, 0.5);
+    margin-top: 10px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    * {
+        margin-left: 11px;
+    }
+}
+.sound-range {
+  appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 75%; /* Specific width is required for Firefox. */
+  height: 2px;
+  background: linear-gradient(320deg, #00f, #0ff);
+}
+.sound-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 32px;
+  width: 16px;
+  border-radius: 50px;
+  background: linear-gradient(320deg, #00f, #0ff);
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  transition: 0.2s;
+}
+.sound-range::-webkit-slider-thumb:hover {
+    filter: brightness(120%);
+}
+
+.sound-range:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+.sound-range::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+.keybindings-title {
+    margin-top: 10px;
+}
+.keybinding {
+    width: 100%;
+    height: 50px;
+    background: rgba(0, 100, 100, 0.5);
+    margin-top: 20px;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.keybinding-name {
+    width: 40%;
+    height: 70%;
+    margin-left: 10px;
+    border: none;
+    border-radius: 10px;
+    background: #0ff;
+    box-shadow: 0 0 10px 5px #0ff;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: Arial;
+    &:hover {
+        box-shadow: 0 0 10px 7px #0ff;
+    }
+}
+.keybinding-key {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: 900;
+    width: 40%;
+    font-size: 20px;
+    margin-right: 10px;
+}
+.keyb-warning {
+    height: 20%;
+    background: #af1000;
+    color: #fff;
+    margin-top: 20px;
+    border-radius: 10px;
+    font-family: system-ui;
+}
+.wrnng {
+    color: #ff0000;
+}
+form {
+    display: flex;
+    justify-content: center;
+    gap: 4px;
+}
+
+ul {
+    display: flex;
+    flex-flow: column;
+    justify-content: left;
+    list-style-type: none;
+    color: #000;
+}
+
+input,
+button {
+    border-radius: 10px;
+    padding: 10px;
+}
+li {
+    background: #0f0;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+}
+.out {
+    background: #0f0;
+    width: 40%;
+    transform: translateX(136%);
+    &::before {
+        content: '(You)';
+        color: #0053a1;
+        padding-right: 10px;
+    }
+}
+.in {
+    background: #fff;
+    width: 40%;
+}
+.sys {
+    background: #ffc400;
+    &::before {
+        content: '(system)';
+        color: #0053a1;
+        padding-right: 10px;
+    }
+    opacity: 0.6;
+}
+.date {
+    font-size: 20px;
+    margin-left: 10px;
+    color: #000;
 }
 .selected_item{
     box-shadow: 0 -1.5px 10px 5px #8c00ff !important;

@@ -3,6 +3,11 @@ import { SignupPage } from './components/signupPage';
 // import { Coon } from './components/coon';
 import { Game } from './components/game';
 import { Loading } from './components/loading';
+import { BrowserRouter } from 'react-router-dom';
+import { Router } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { Routes } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function App() {
 
@@ -363,7 +368,9 @@ const perks = [
         emailRef={emailRef}
         passwordRef={passwordRef} />
         }
-        {signedUp && <Game
+        {signedUp && 
+        <>
+        <Game
         content={content}
         showProfile={showProfile}
         showGear={showGear}
@@ -395,6 +402,7 @@ const perks = [
         notes={notes}
         creditsText={creditsText}
         />
+        </>
         }
       </>
       }

@@ -1,15 +1,54 @@
-import { useState } from 'react'
-import '../game.css'
-import { io } from 'socket.io-client';
-import { useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import io from 'socket.io-client';
+import '../game.css';
 
+const SOCKET_SERVER_URL = 'http://localhost:2000'; // Replace with your server URL
 
-export function Messages({ messagesContent }){
-
+export function Messages({ messagesContent }) {
     const [currentChat, setCurrentChat] = useState('');
+    const [messages, setMessages] = useState([]);
+    const socketRef = useRef();
 
-    function openWorldChat(){
-        setCurrentChat('world-chat')
+    const username = localStorage.getItem("name");
+    
+    function sendMessage(){
+        const input = document.getElementById('msg');
+        if (input.value) {
+            socketRef.current.emit('message', {msg: input.value, username: username, id: socketRef.current.id})
+            input.value = ""
+        }
+        input.focus()
+    }
+
+    useEffect(() => {
+        // Connect to the socket server
+        socketRef.current = io(SOCKET_SERVER_URL);
+
+        // Listen for incoming messages
+        socketRef.current.on('message', data => {
+            const li = document.createElement('li');
+            li.innerHTML = data.msg + `<span class="date">${new Date().getHours()}:${new Date().getMinutes() < 10 ? `0${new Date().getMinutes()}` : new Date().getMinutes()}${new Date().getHours() > 11 ? ' PM' : ' AM'}</span>`;
+            if (data.id === socketRef.current.id) {
+                li.className = 'out';
+            } else if (data.username === 'sys') {
+                li.className = 'sys';
+            } else {
+                li.className = 'in';
+            }
+            document.getElementById('ul').append(li);
+        });
+
+        socketRef.current.emit('username', username);
+
+        // Clean up the connection on component unmount
+        return () => {
+            socketRef.current.disconnect();
+        };
+    }, []);
+
+
+    function openWorldChat() {
+        setCurrentChat('world-chat');
     }
 
     return (
@@ -22,17 +61,29 @@ export function Messages({ messagesContent }){
                 </div>
                 <div className="messages-container">
                     <div className="messages">
-                        {currentChat === 'world-chat' && <iframe src='http://127.0.0.1:5500/app/' style={{ width: 100 + '%', height: 100 + '%', border: 'none' }}></iframe>}
-                        {currentChat === '' && <div className="open-world-chat" onClick={() => openWorldChat()}>
-                            <button className="world-chat-btn">World Chat</button>
-                        </div>}
+                        {currentChat === 'world-chat' && (
+                            <>
+                            <form onSubmit={e => {e.preventDefault();sendMessage()}}>
+                                <input type="text" id='msg' />
+                                <button type="submit">Send</button>
+                            </form>
+                            <ul id='ul'></ul>
+                            
+                                {messages.map((msg, index) => (
+                                    <div key={index} className="message">
+                                        <div className={msg.username === localStorage.getItem("name") ? 'out' : 'in'}>{msg.username}: {msg.msg}</div>
+                                    </div>
+                                ))}
+                            </>
+                        )}
+                        {currentChat === '' && (
+                            <div className="open-world-chat" onClick={openWorldChat}>
+                                <button className="world-chat-btn">World Chat</button>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"
-            integrity="sha512-Xm9qbB6Pu06k3PUwPj785dyTl6oHxgsv9nHp7ej7nCpAqGZT3OZpsELuCYX05DdonFpTlBpXMOxjavIAIUwr0w=="
-            crossOrigin="anonymous" referrerPolicy="no-referrer"></script>
-            <script defer src="./app.js" type="module"></script>
         </>
-    )
+    );
 }
