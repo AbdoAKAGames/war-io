@@ -1,6 +1,7 @@
 import '../game.css'
 
 export function Currency(){
+
     return (
         <>
         <div className="currency">
@@ -10,7 +11,7 @@ export function Currency(){
                     </div>
                     <div className="gems_currency_count_container">
                         <div className="gems_currency_count">
-                            500
+                            {localStorage.gems ? localStorage.gems : 0}
                         </div>
                     </div>
                 </div>
@@ -20,7 +21,7 @@ export function Currency(){
                     </div>
                     <div className="coins_currency_count_container">
                         <div className="coins_currency_count">
-                            500
+                            {localStorage.coins ? localStorage.coins : 0}
                         </div>
                     </div>
                 </div>

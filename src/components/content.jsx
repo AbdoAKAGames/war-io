@@ -33,6 +33,8 @@ export function Content({
     note,
     notes,
     creditsText,
+    isShop,
+    setIsShop,
 }){
     const credits = useRef(null);
     return (
@@ -61,6 +63,8 @@ export function Content({
                         <Play playContent={playContent}
                         creditsText={creditsText}
                         credits={credits}
+                        isShop={isShop}
+                        setIsShop={setIsShop}
                         />
                         <Clans clansContent={clansContent} />
                         <Events eventsContent={eventsContent} />

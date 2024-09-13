@@ -76,7 +76,8 @@ export function Settings({ settingsContent }) {
             document.getElementsByClassName("keybinding-key")[index].innerHTML = '<span>Select A Key</span>'
             setSelectKey(true);
             document.addEventListener("keyup", function evl(e) {
-                if (e.code === 'Space') return
+                if (e.code === 'Space') return;
+                e.preventDefault();
                 document.getElementsByClassName("keybinding-key")[index].innerHTML = e.key ;
                 const newKey = [{ keybindings: keybindings, sound: Number(document.getElementById('sound-range').value) }]
                 newKey[0].keybindings[index].key = e.key;

@@ -34,6 +34,8 @@ export function Game({
     note,
     notes,
     creditsText,
+    isShop,
+    setIsShop,
 }){
     localStorage.setItem("level", 0);
     return (
@@ -49,6 +51,7 @@ export function Game({
             showEvents={showEvents}
             showMessages={showMessages}
             showSettings={showSettings}
+            setIsShop={setIsShop}
             />
             <Content
             content={content}
@@ -74,6 +77,8 @@ export function Game({
             eventsContent={eventsContent}
             messagesContent={messagesContent}
             settingsContent={settingsContent}
+            isShop={isShop}
+            setIsShop={setIsShop}
             />
                 </div>
             </div>

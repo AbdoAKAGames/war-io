@@ -3,7 +3,7 @@ import '../game.css'
 
 export function Events({ eventsContent }) {
 
-    const [events, setEvents] = useState([ /*{ title: 'The Gems', image: 'src/assets/gems icon.png', time: '00:30:00' }*/ ]);
+    const [events, setEvents] = useState([{ title: 'The Gems', image: 'src/assets/gems icon.png', time: '00:30:00' }]);
 
     return (
         <>
@@ -15,7 +15,7 @@ export function Events({ eventsContent }) {
                 </div>
                 <div className="events-container">
                     <div className="events">
-{/*                         {events.map(event => (
+                        {/* {events.map(event => (
                             <div className="event">
                             <div className="event-title">
                                 {event.title}

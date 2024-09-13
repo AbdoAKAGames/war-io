@@ -6,7 +6,6 @@ const SOCKET_SERVER_URL = 'http://localhost:2000'; // Replace with your server U
 
 export function Messages({ messagesContent }) {
     const [currentChat, setCurrentChat] = useState('');
-    const [messages, setMessages] = useState([]);
     const socketRef = useRef();
 
     const username = localStorage.getItem("name");
@@ -35,6 +34,7 @@ export function Messages({ messagesContent }) {
             } else {
                 li.className = 'in';
             }
+            li.classList.add('message-li')
             document.getElementById('ul').append(li);
         });
 
@@ -69,11 +69,6 @@ export function Messages({ messagesContent }) {
                             </form>
                             <ul id='ul'></ul>
                             
-                                {messages.map((msg, index) => (
-                                    <div key={index} className="message">
-                                        <div className={msg.username === localStorage.getItem("name") ? 'out' : 'in'}>{msg.username}: {msg.msg}</div>
-                                    </div>
-                                ))}
                             </>
                         )}
                         {currentChat === '' && (

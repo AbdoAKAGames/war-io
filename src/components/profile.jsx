@@ -1,11 +1,10 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import '../game.css'
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 export function Profile({ profileContent, notes, note }){
 
     const secretInfo = useRef(null);
+    const [password, setPassword] = useState(false);
 
     const profile_stats = [
         {
@@ -57,30 +56,23 @@ export function Profile({ profileContent, notes, note }){
             enc = x.repeat(i + 1);
             console.log(enc);
         }
-        function copy(storageName, info){
+        function copy(storageName){
             navigator.clipboard.writeText(localStorage.getItem(storageName));
-        }
-        function showPassword(){
-            document.getElementById('password').innerHTML = localStorage.getItem("password") + '<svg data-info="password" data-storage="wi_password" xmlns="http://www.w3.org/2000/svg" class="copy" title="copy id" viewBox="0 0 448 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M208 0L332.1 0c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9L448 336c0 26.5-21.5 48-48 48l-192 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48zM48 128l80 0 0 64-64 0 0 256 192 0 0-32 64 0 0 48c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 176c0-26.5 21.5-48 48-48z"/></svg>';
-            const element = document.getElementsByClassName('copy')[2]
-            element.addEventListener("click", () => {
-                copy(element.getAttribute('data-storage'), element.getAttribute('data-info'));
-            })
         }
         return (
             <>
             <tbody>
             <tr>
            <th>id: </th>
-           <td>{localStorage.getItem("ID")} <svg onClick={() => {copy("ID", 'id');displayNote('your id was copied')}} data-info="id" data-storage="ID" xmlns="http://www.w3.org/2000/svg" className="copy" title="copy id" viewBox="0 0 448 512"><path d="M208 0L332.1 0c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9L448 336c0 26.5-21.5 48-48 48l-192 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48zM48 128l80 0 0 64-64 0 0 256 192 0 0-32 64 0 0 48c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 176c0-26.5 21.5-48 48-48z"/></svg></td>
+           <td>{localStorage.getItem("ID")} <svg onClick={() => {copy("ID");displayNote('your id was copied')}} data-info="id" data-storage="ID" xmlns="http://www.w3.org/2000/svg" className="copy" title="copy id" viewBox="0 0 448 512"><path d="M208 0L332.1 0c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9L448 336c0 26.5-21.5 48-48 48l-192 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48zM48 128l80 0 0 64-64 0 0 256 192 0 0-32 64 0 0 48c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 176c0-26.5 21.5-48 48-48z"/></svg></td>
             </tr>
             <tr>
                <th>email: </th>
-               <td>{localStorage.getItem("email")} <svg onClick={() => {copy("email", 'email');displayNote('your email was copied')}} data-info="email" data-storage="email" xmlns="http://www.w3.org/2000/svg" className="copy" title="copy id" viewBox="0 0 448 512"><path d="M208 0L332.1 0c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9L448 336c0 26.5-21.5 48-48 48l-192 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48zM48 128l80 0 0 64-64 0 0 256 192 0 0-32 64 0 0 48c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 176c0-26.5 21.5-48 48-48z"/></svg></td>
+               <td>{localStorage.getItem("email")} <svg onClick={() => {copy("email");displayNote('your email was copied')}} data-info="email" data-storage="email" xmlns="http://www.w3.org/2000/svg" className="copy" title="copy id" viewBox="0 0 448 512"><path d="M208 0L332.1 0c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9L448 336c0 26.5-21.5 48-48 48l-192 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48zM48 128l80 0 0 64-64 0 0 256 192 0 0-32 64 0 0 48c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 176c0-26.5 21.5-48 48-48z"/></svg></td>
             </tr>
             <tr>
                <th>password: </th>
-               <td id="password">{enc} <svg onClick={() => {copy("password", 'password');displayNote('your password was copied')}} data-info="password" data-storage="password" xmlns="http://www.w3.org/2000/svg" className="copy" title="copy id" viewBox="0 0 448 512"><path d="M208 0L332.1 0c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9L448 336c0 26.5-21.5 48-48 48l-192 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48zM48 128l80 0 0 64-64 0 0 256 192 0 0-32 64 0 0 48c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 176c0-26.5 21.5-48 48-48z"/></svg> <button className="showPassword" onClick={() => showPassword()}>&#128065;</button></td>
+               <td id="password">{!password && enc} {password && localStorage.getItem("password")} <svg onClick={() => {copy("password");displayNote('your password was copied')}} data-info="password" data-storage="password" xmlns="http://www.w3.org/2000/svg" className="copy" title="copy id" viewBox="0 0 448 512"><path d="M208 0L332.1 0c12.7 0 24.9 5.1 33.9 14.1l67.9 67.9c9 9 14.1 21.2 14.1 33.9L448 336c0 26.5-21.5 48-48 48l-192 0c-26.5 0-48-21.5-48-48l0-288c0-26.5 21.5-48 48-48zM48 128l80 0 0 64-64 0 0 256 192 0 0-32 64 0 0 48c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 176c0-26.5 21.5-48 48-48z"/></svg> <button className="showPassword" onClick={() => setPassword(!password)}>&#128065;</button></td>
             </tr>
             </tbody>
             </>
@@ -110,7 +102,7 @@ export function Profile({ profileContent, notes, note }){
                                                     <th>k/d</th>
                                                 </tr>
                                                 <tr>
-                                                    <td><span>season {i + 1}:</span></td>
+                                                    <td><span>Season {i + 1}:</span></td>
                                                     <td>{profile_stats[i].kills}</td>
                                                     <td>{profile_stats[i].wins}</td>
                                                     <td>{parseFloat(profile_stats[i].kills / profile_stats[i].deaths).toFixed(2)}</td>

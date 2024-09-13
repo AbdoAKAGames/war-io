@@ -2,8 +2,27 @@ import { useRef } from 'react';
 import '../game.css'
 import { useState } from 'react';
 import { useCallback } from 'react';
+import io from 'socket.io-client';
+import { useEffect } from 'react';
+const SOCKET_SERVER_URL = 'http://localhost:2000';
 
 export function Clans({ clansContent }){
+
+    const socketRef = useRef();
+
+    useEffect(() => {
+        socketRef.current = io(SOCKET_SERVER_URL);
+
+        socketRef.current.on('create-clan', clan => {
+            setClans(prevClans => [...prevClans, {id: clan.id, name: clan.name, tag: clan.tag, requiredLevel: clan.reqLevel, members: clan.members}])
+        })
+
+        return () => {
+            socketRef.current.disconnect();
+        };
+    }, [])
+
+
 
     let hasclan = false;
     const search = useRef(null);
@@ -12,7 +31,7 @@ export function Clans({ clansContent }){
     const createClanTagRef = useRef(null);
     const createRequiredLevelTagRef = useRef(null);
     const [createClanModal, setCreateClanModal] = useState(false);
-    if (localStorage.getItem("clans")) JSON.parse(localStorage.getItem("clans")).forEach(clan => clan.members.forEach(member => member.name === localStorage.name ? hasclan = true : hasclan = false));
+    if (localStorage.getItem("clans")) JSON.parse(localStorage.getItem("clans")).forEach(clan => clan.members.forEach(member => member.id === localStorage.ID ? hasclan = true : hasclan = false));
     const [hasClan, setHasClan] = useState(hasclan);
     const clansArr = localStorage.getItem("clans") ? JSON.parse(localStorage.getItem("clans")) : [];
     const [selectedClan, setSelectedClan] = useState('');
@@ -20,8 +39,8 @@ export function Clans({ clansContent }){
     const [isMember, setIsMember] = useState(false);
     
     const clans_list_item_container = document.getElementsByClassName('clans_list_item_container');
-    const clan_name = document.getElementsByClassName('clan_name');
-    const clan_tag = document.getElementsByClassName('clan_tag');
+    const clan_name = document.getElementsByClassName('clan-name');
+    const clan_tag = document.getElementsByClassName('clan-tag');
     function searchClans() {
         const filterText = search.current.value.trim().toLowerCase();
         for (let i = 0; i < clan_tag.length; i++) {
@@ -38,11 +57,12 @@ const createClan = useCallback(() => {
     const clanRequiredLevel = createRequiredLevelTagRef.current.value;
     const clanID = crypto.randomUUID()
     if (clanName.length > 0 && clanTag.length == 3) {
-        setClans(prevClans => [...prevClans, {id: clanID, name: clanName, tag: clanTag, requiredLevel: clanRequiredLevel, members: [{name: localStorage.getItem("name")}]}])
+        setClans(prevClans => [...prevClans, {id: clanID, name: clanName, tag: clanTag, requiredLevel: clanRequiredLevel, members: [{name: localStorage.getItem("name"), id: localStorage.getItem('ID')}]}])
         setCreateClanModal(false);
         setHasClan(true);
-        clansArr.push({id: clanID, name: clanName, tag: clanTag, requiredLevel: clanRequiredLevel, members: [{name: localStorage.getItem("name")}]});
+        clansArr.push({id: clanID, name: clanName, tag: clanTag, requiredLevel: clanRequiredLevel, members: [{name: localStorage.getItem("name"), id: localStorage.getItem('ID')}]});
         localStorage.setItem("clans", JSON.stringify(clansArr));
+        socketRef.current.emit('create-clan', {id: clanID, name: clanName, tag: clanTag, reqLevel: clanRequiredLevel, members: [{name: localStorage.getItem("name"), id: localStorage.getItem('ID')}]})
     }
 }, [clans, clansArr])
 
@@ -147,10 +167,10 @@ const createClan = useCallback(() => {
                             <div className="clans_list_item">
                                 <div className="clan_text">
                                     <div className="clan_tag det">
-                                        <span>Clan Tag:</span> {`[${clan.tag}]`}
+                                        <span>Clan Tag:</span> <div className="clan-tag">{clan.tag}</div>
                                     </div>
                                     <div className="clan_name det">
-                                        <span>Clan Name:</span> {clan.name}
+                                        <span>Clan Name:</span> <div className="clan-name">{clan.name}</div>
                                     </div>
                                     <div className="required-level det">
                                         <span>Clan Required Level:</span> {clan.requiredLevel}

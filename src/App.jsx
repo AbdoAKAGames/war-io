@@ -3,11 +3,6 @@ import { SignupPage } from './components/signupPage';
 // import { Coon } from './components/coon';
 import { Game } from './components/game';
 import { Loading } from './components/loading';
-import { BrowserRouter } from 'react-router-dom';
-import { Router } from 'react-router-dom';
-import { Route } from 'react-router-dom';
-import { Routes } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 export default function App() {
 
@@ -17,6 +12,7 @@ export default function App() {
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [isShop, setIsShop] = useState(false);
   const notes = useRef(null);
   const note = useRef(null);
   const content = useRef(null);
@@ -30,11 +26,11 @@ export default function App() {
   const creditsText = useRef(null);
 
     function showSignup(){
-        setSignupForm(true);
+      setSignupForm(true);
     }
 
     function hideSignupForm(){
-        setSignupForm(false);
+      setSignupForm(false);
     }
 
     function signUp(){
@@ -83,6 +79,10 @@ export default function App() {
 
       function showProfile(){
         hideAllItems(profileContent);
+        for (let index = 0; index < document.getElementsByClassName('left_sidebar_item').length; index++) {
+          const element = document.getElementsByClassName('left_sidebar_item')[index];
+          element.classList.remove('selected_item');
+        }
       }
       function showGear(){
         hideAllItems(gearContent);
@@ -352,6 +352,16 @@ const perks = [
                 })
             }
     }
+
+
+    window.addEventListener("load", () => {
+      if (!localStorage.getItem("gems")) {
+          localStorage.setItem("gems", "100");
+      }
+      if (!localStorage.getItem("coins")) {
+          localStorage.setItem("coins", "200");
+      }
+  })
     
 
       
@@ -401,11 +411,14 @@ const perks = [
         note={note}
         notes={notes}
         creditsText={creditsText}
+        isShop={isShop}
+        setIsShop={setIsShop}
         />
         </>
         }
       </>
       }
+      
     </>
   )
 }
